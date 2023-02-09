@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12  bg-secondary-theme p-3 pb-5 shadow text-theme-primary "  >
+            <h3 class="text-center">{{currentStatus}} Categories</h3>
+            <p class="text-center mb-5">You can {{currentStatus | lowercase }} the categories here...</p>
+
+            <form  class="form-inline text-center"  #categoryForm = 'ngForm'  (ngSubmit) = "formController(categoryForm)"  >
+                <div class="form-group col-md-10">
+                    <input type="text" 
+                    class="form-control shadow"  
+                    name = 'category'
+                    placeholder="Add New Category"
+                    #category = 'ngModel'
+                    [(ngModel)] = 'categoryInput'
+                    required
+                    [ngClass]="{ 'is-invalid' : category.touched && category.invalid, 'red-border' : category.touched && category.invalid }"
+                    
+                    >
+
+                    <div class="alert alert-danger" 
+                    *ngIf="category.touched && category.invalid" 
+                    style="width:  100% ;"
+                    >Please fill the above field</div>
+                </div>
+
+                <div class="col-md-2 pt-2" >
+                    <button class="btn btn-block btn-info mb-2 btn-theme"
+                    [disabled]="categoryForm.invalid"
+
+                    >{{currentStatus}} Category</button>
+                </div>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <table class="table row-border hover">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let items of categoriesArray; let index = index" >
+                                <td>{{ index + 1}}</td>
+                                <td>{{ items.data?.['category']  }}</td>
+                                <td> <button class="btn btn-warning"
+                                    (click)="editHandler(items.data?.['category'], items.id)"
+                                    >Edit</button>  / <button class="btn btn-danger">Delete</button>  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
