@@ -58,6 +58,14 @@ input[type=text], input[type=email]{
     background-color: var(--primary-color);
 }
 
+.btn-design{
+    margin-top: 17px;
+    height: 58px;
+    border: none;
+    font-size: 20px;
+    border-radius: 13px;
+}
+
 .red-border{
     border : 2px solid red;
 }

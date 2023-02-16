@@ -56,7 +56,7 @@
                                 <td>{{ items.data?.['category']  }}</td>
                                 <td> <button class="btn btn-warning"
                                     (click)="editHandler(items.data?.['category'], items.id)"
-                                    >Edit</button>  / <button class="btn btn-danger">Delete</button>  </td>
+                                    >Edit</button>  / <button class="btn btn-danger" (click)="deleteHandler(items.id)"  >Delete</button>  </td>
                             </tr>
                         </tbody>
                     </table>

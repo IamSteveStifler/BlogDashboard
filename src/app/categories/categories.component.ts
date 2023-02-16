@@ -57,4 +57,10 @@ export class CategoriesComponent implements OnInit {
     this.categoryId = id;
   }
 
+
+  deleteHandler(id:string){
+    console.log(id);
+    this.categoriesService.deleteCategory(id);
+  }
+
 }
